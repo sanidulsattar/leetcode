@@ -1,0 +1,43 @@
+// Using Undordered Set
+
+
+class Solution {
+    public int partitionString(String s) {
+        int res =1;
+        HashSet<Character> set = new HashSet<>();
+        for(int i=0; i<s.length(); i++)
+        {
+            if(set.contains(s.charAt(i)))
+            {
+                set.clear();
+                set.add(s.charAt(i));
+                res++;
+            }
+            else
+            {
+                set.add(s.charAt(i));
+            }
+        }       
+    return res; 
+    }
+}
+
+
+// Using Bit Manipulation
+
+
+public class Solution {
+    public int partitionString(String s) {
+        int i = 0, ans = 1, flag = 0;
+        while(i < s.length()) {
+            int val = s.charAt(i) - 'a';
+            if ((flag & (1 << val)) != 0) {
+                flag = 0;
+                ans++;
+            }
+            flag = flag | (1 << val);
+            i++;
+        }
+        return ans;
+    }
+}
