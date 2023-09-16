@@ -1,0 +1,29 @@
+class Solution {
+    public int pivotIndex(int[] nums) {
+    //   int sum = Arrays.stream(nums).sum();
+    int sum =0;
+        for(int j=1; j<nums.length; j++)
+        {
+            sum = sum+nums[j];
+
+        }
+
+        int temp1=0, temp2=sum;
+        for(int i=0; i<nums.length; i++){
+            if(temp1==temp2)
+            {
+                return i;
+            }
+            else if(temp1 != temp2 && i!=nums.length-1)
+            {
+                temp1 = nums[i]+temp1;
+                temp2 = temp2-nums[i+1];
+            }
+            
+
+        }
+       
+        return -1;
+        
+    }
+}
