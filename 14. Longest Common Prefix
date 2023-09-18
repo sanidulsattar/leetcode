@@ -1,0 +1,29 @@
+class Solution {
+   public  String Compare(String a, String b)
+    {
+        int i=0, j=0;
+        String ret  ="";
+        while(i<a.length() && j<b.length())
+        {
+            if(a.charAt(i)==b.charAt(j))
+            {
+                ret = ret + a.charAt(i);
+            }
+            else return ret;
+            i++;
+            j++;
+        }
+        return ret;
+    }
+    public String longestCommonPrefix(String[] strs) {
+        String ans = strs[0];
+        for(int i=0; i<strs.length-1; i++)
+        {
+            String x = Compare(ans, strs[i+1]);
+            if(x.equals(""))
+            return "";
+            ans = x;
+        }
+        
+    return ans;}
+}
