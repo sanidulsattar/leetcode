@@ -1,3 +1,5 @@
+// leetcode 14.Longest common prefix
+
 class Solution {
    public  String Compare(String a, String b)
     {
