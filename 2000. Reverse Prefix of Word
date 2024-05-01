@@ -29,3 +29,16 @@ class Solution {
     return sb.toString();
     }
 }
+
+
+// Using pure function only
+
+  int idx = word.indexOf(ch);
+        if(idx==-1)
+        return word;
+        StringBuilder sb = new StringBuilder(word.substring(0,idx+1)).reverse();
+        if(idx+1<word.length())
+        sb.append(word.substring(idx+1));
+
+        return sb.toString();
+
