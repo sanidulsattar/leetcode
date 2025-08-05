@@ -1,0 +1,19 @@
+// Brootforce- time com = O(m*n) and space com = O(1)
+
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode b = headB;
+      while(headA != null){
+        ListNode a = headA;
+        while(b != null){
+            if(a == b){
+            return a;}
+            b = b.next;
+        }
+        headA = headA.next;
+        b = headB;
+
+      }  
+return null;
+    }
+}
