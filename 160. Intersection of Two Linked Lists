@@ -1,4 +1,4 @@
-// Brootforce- time com = O(m*n) and space com = O(1)
+// Brute force- time com = O(m*n) and space com = O(1)
 
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
