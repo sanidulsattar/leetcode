@@ -3,12 +3,15 @@
 class Solution {
     public int getDecimalValue(ListNode head) {
 
-        int ans =  0;
-        while(head != null){
-            ans = ans*2 + head.val;
+        int res =0;
+
+        while(head != null)
+        {
+            res = res*2;
+            res = res + head.val;
             head = head.next;
         }
-
-        return ans;
+        return res;
+        
     }
 }
