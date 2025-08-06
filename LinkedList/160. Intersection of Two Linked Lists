@@ -1,8 +1,9 @@
-//Optimal Approach  
-// Time and Space Complexity is - O(m+n) && O(1)
 
 public class Solution {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+
+        //Optimal Approach by two pointer  
+       // Time and Space Complexity is - O(m+n) && O(1)
 
         ListNode a = headA;
         ListNode b = headB;
@@ -13,5 +14,47 @@ public class Solution {
             b = (b == null) ? headA : b.next;
         }
         return a;
+
+      //Solution by Hashset  
+       // Time and Space Complexity is - O(m+n) && O(m+n)
+
+         Set<ListNode> set = new HashSet<>();
+
+        while(headA != null || headB != null){
+            if(headA != null){
+                if(set.contains(headA))
+                {
+                    return headA;
+                }
+                set.add(headA);
+                headA = headA.next;
+            }
+            if(headB != null){
+                if(set.contains(headB))
+                {
+                    return headB;
+                }
+                set.add(headB);
+                headB = headB.next;
+            }
+        }
+            return null;
+
+        //Brute force solution  
+       // Time and Space Complexity is - O(m*n) && O(1)
+
+    ListNode b = headB;
+      while(headA != null){
+        ListNode a = headA;
+        while(b != null){
+            if(a == b){
+            return a;}
+            b = b.next;
+        }
+        headA = headA.next;
+        b = headB;
+
+      }  
+return null;
     }
 }
