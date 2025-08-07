@@ -1,5 +1,5 @@
 // brute force technique with two passes
-// Space and Time Complexity - O(n) and O(1)
+// Space and Time Complexity - O(n) in real O(2n) and O(1)
 
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
@@ -19,5 +19,25 @@ class Solution {
              }
         temp.next = temp.next.next;
         return head;
+
+// Optimized solution with single pass 
+// // Space and Time Complexity - O(n) and O(1)
+
+ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode slow = dummy;
+        ListNode fast = dummy;
+        for(int i=0; i<=n; i++)
+        {
+            fast = fast.next;
+        }
+        while(fast != null)
+        {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        slow.next = slow.next.next;
+
+        return dummy.next;
     }
 }
