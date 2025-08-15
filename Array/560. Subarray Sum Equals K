@@ -1,0 +1,28 @@
+// solve with prefixsum and hashmap in one cylcle 
+// Time and Space Complexity - O(n) && O(n)
+
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+
+        int count=0;
+        int prefix =0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+       map.put(0,1);
+        for(int num : nums)
+        {
+            prefix += num;
+            if(map.containsKey(prefix - k)){
+                count += map.get(prefix - k);
+                }
+            if(map.containsKey(prefix))
+            {
+                map.put(prefix, map.get(prefix)+1);
+            }
+            else{
+                map.put(prefix,1);
+            }
+        }
+        
+    return count;    
+    }
+}
